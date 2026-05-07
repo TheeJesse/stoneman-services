@@ -1,0 +1,18 @@
+@import "tailwindcss";
+
+:root {
+  --green-primary: #1B4332;
+  --green-dark: #0f2a1f;
+  --green-light: #2d6a4f;
+  --brown-primary: #8B5E3C;
+  --cream: #FAF7F2;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--cream);
+  color: #1a1a1a;
+}
