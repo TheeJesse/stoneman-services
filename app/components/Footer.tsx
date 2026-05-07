@@ -44,7 +44,7 @@ export default function Footer() {
               <li className="text-gray-400">Mon–Sun: 8:00 AM – 6:00 PM</li>
             </ul>
             <a
-              href="https://getjobber.com/get-quote/"
+              href="/contact"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-block px-5 py-3 rounded-full font-semibold text-white text-sm"

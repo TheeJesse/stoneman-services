@@ -78,28 +78,12 @@ export default function ContactPage() {
                 Fill out our quick job request form and we'll get back to you, usually within a day or two.
               </p>
 
-              {/* Jobber embed placeholder — replace src with your Jobber form URL */}
-              <div
-                className="w-full rounded-lg flex items-center justify-center text-center p-8 mb-4"
-                style={{ backgroundColor: "#F0EBE3", minHeight: "350px" }}
-              >
-                <div>
-                  <div className="text-4xl mb-3">📋</div>
-                  <p className="font-semibold mb-2" style={{ color: "#1B4332" }}>Job Request Form</p>
-                  <p className="text-sm text-gray-500 mb-4">
-                    Replace this placeholder with your Jobber embedded form.
-                  </p>
-                  <a
-                    href="https://getjobber.com/get-quote/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-block px-6 py-3 rounded-full font-semibold text-white text-sm"
-                    style={{ backgroundColor: "#8B5E3C" }}
-                  >
-                    Open Job Request Form →
-                  </a>
-                </div>
-              </div>
+              <iframe
+                src="https://quoteiq-2.web.app/customer_form/5EuRgZilTHTJcCv2bwNSbGHPlrJ2-5EuRgZilTHTJcCv2bwNSbGHPlrJ2"
+                className="w-full rounded-lg border-0"
+                style={{ minHeight: "600px" }}
+                title="Request a Free Estimate"
+              />
 
               <p className="text-center text-xs text-gray-400">
                 Or call us directly — we're friendly and happy to answer questions!

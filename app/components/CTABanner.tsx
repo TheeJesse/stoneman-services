@@ -7,7 +7,7 @@ export default function CTABanner({ heading = "Ready to protect and improve your
       </p>
       <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
         <a
-          href="https://getjobber.com/get-quote/"
+          href="/contact"
           target="_blank"
           rel="noopener noreferrer"
           className="px-7 py-3 rounded-full font-semibold text-white text-sm transition-opacity hover:opacity-90"

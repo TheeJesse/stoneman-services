@@ -24,7 +24,7 @@ export default function Header() {
           <Link href="/areas-we-serve" className="hover:text-yellow-200 transition-colors">Areas We Serve</Link>
           <Link href="/contact" className="hover:text-yellow-200 transition-colors">Contact</Link>
           <a
-            href="https://getjobber.com/get-quote/"
+            href="/contact"
             target="_blank"
             rel="noopener noreferrer"
             className="ml-2 px-4 py-2 rounded-full font-semibold text-white transition-colors"
@@ -56,7 +56,7 @@ export default function Header() {
           <Link href="/areas-we-serve" onClick={() => setMenuOpen(false)} className="py-2 border-b border-green-800 hover:text-yellow-200">Areas We Serve</Link>
           <Link href="/contact" onClick={() => setMenuOpen(false)} className="py-2 border-b border-green-800 hover:text-yellow-200">Contact</Link>
           <a
-            href="https://getjobber.com/get-quote/"
+            href="/contact"
             target="_blank"
             rel="noopener noreferrer"
             className="mt-2 px-4 py-3 rounded-full font-semibold text-white text-center"

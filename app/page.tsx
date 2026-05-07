@@ -128,7 +128,7 @@ export default function HomePage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
               <a
-                href="https://getjobber.com/get-quote/"
+                href="/contact"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="px-8 py-4 rounded-full font-bold text-white text-base transition-opacity hover:opacity-90"
@@ -171,7 +171,7 @@ export default function HomePage() {
           {/* Top CTA */}
           <div className="text-center mb-10">
             <a
-              href="https://getjobber.com/get-quote/"
+              href="/contact"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-block px-7 py-3 rounded-full font-semibold text-white"
@@ -230,7 +230,7 @@ export default function HomePage() {
           {/* Bottom CTA */}
           <div className="text-center">
             <a
-              href="https://getjobber.com/get-quote/"
+              href="/contact"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-block px-7 py-3 rounded-full font-semibold text-white"
