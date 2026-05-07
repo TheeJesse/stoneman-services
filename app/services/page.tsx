@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import PlaceholderImage from "../components/PlaceholderImage";
+import Image from "next/image";
 import CTABanner from "../components/CTABanner";
 
 export const metadata: Metadata = {
@@ -55,27 +55,27 @@ const woodServices = [
   {
     name: "Fence Staining & Sealing",
     desc: "We clean, brighten, and apply high-quality stain and sealer to privacy fences, picket fences, and farm fences. This protects the wood and gives it a fresh, even finish.",
-    img: "Fence Staining",
+    img: "/images/hero-fence-cedar.jpg",
   },
   {
     name: "Deck & Pergola Care",
     desc: "Full cleaning, staining, and sealing for decks, pergolas, arbors, and other outdoor wood structures. We make your outdoor living spaces look beautiful and stay protected.",
-    img: "Deck & Pergola",
+    img: "/images/hero-deck-1.jpg",
   },
   {
     name: "New Build Stain Finishes",
     desc: "Perfect first-time staining for newly installed fences, decks, and wood structures. We help you choose the right color and finish for long-lasting beauty.",
-    img: "New Build Staining",
+    img: "/images/hero-fence-deck-combo.jpg",
   },
   {
     name: "Maintenance Coats & Cleaning",
     desc: "Regular maintenance keeps your wood in top condition. We provide yearly or bi-yearly cleaning and fresh maintenance coats to extend the life of your fence or deck.",
-    img: "Maintenance",
+    img: "/images/action-staining-railing.jpg",
   },
   {
     name: "Full Restorations & Minor Repairs",
     desc: "We restore older or weathered wood structures. This includes deep cleaning, minor board replacement, tightening hardware, and complete refinishing so your fence or deck looks like new again.",
-    img: "Full Restoration",
+    img: "/images/before-after-deck-1.jpg",
   },
 ];
 
@@ -172,7 +172,13 @@ export default function ServicesPage() {
                 className={`flex flex-col ${i % 2 === 1 ? "md:flex-row-reverse" : "md:flex-row"} gap-8 items-center`}
               >
                 <div className="flex-1">
-                  <PlaceholderImage label={svc.img} aspectRatio="aspect-video" className="shadow-md" />
+                  <Image
+                    src={svc.img}
+                    alt={svc.name}
+                    width={600}
+                    height={340}
+                    className="rounded-lg shadow-md w-full h-auto"
+                  />
                 </div>
                 <div className="flex-1">
                   <h3 className="text-xl font-bold mb-3" style={{ color: "#1B4332" }}>{svc.name}</h3>
@@ -199,7 +205,13 @@ export default function ServicesPage() {
             ))}
           </div>
           <div className="mt-8">
-            <PlaceholderImage label="Driveway Services" aspectRatio="aspect-video" className="shadow-md" />
+            <Image
+              src="/images/hero-driveway.jpg"
+              alt="Driveway cleaning and sealing services"
+              width={600}
+              height={340}
+              className="rounded-lg shadow-md w-full h-auto"
+            />
           </div>
         </div>
       </section>

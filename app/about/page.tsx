@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import PlaceholderImage from "../components/PlaceholderImage";
+import Image from "next/image";
 import CTABanner from "../components/CTABanner";
 
 export const metadata: Metadata = {
@@ -74,7 +74,13 @@ export default function AboutPage() {
       <section className="py-16 px-4 bg-white">
         <div className="max-w-5xl mx-auto flex flex-col md:flex-row gap-12 items-center">
           <div className="flex-1">
-            <PlaceholderImage label="Ron & Matt Stoneman" aspectRatio="aspect-square" className="shadow-lg max-w-sm mx-auto" />
+            <Image
+              src="/images/before-after-fence-team.jpg"
+              alt="Ron and Matt Stoneman — Stoneman Services"
+              width={400}
+              height={400}
+              className="rounded-xl shadow-lg max-w-sm mx-auto w-full h-auto"
+            />
           </div>
           <div className="flex-1">
             <h2 className="text-2xl font-bold mb-5" style={{ color: "#1B4332" }}>Our Story</h2>

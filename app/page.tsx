@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import PlaceholderImage from "./components/PlaceholderImage";
+import Image from "next/image";
 import CTABanner from "./components/CTABanner";
 
 export const metadata: Metadata = {
@@ -145,7 +145,13 @@ export default function HomePage() {
             </div>
           </div>
           <div className="flex-1 w-full max-w-lg">
-            <PlaceholderImage label="Hero Image" className="shadow-2xl" />
+            <Image
+              src="/images/hero-fence-1.jpg"
+              alt="Beautifully stained privacy fence in Nashville, TN"
+              width={600}
+              height={400}
+              className="rounded-xl shadow-2xl w-full h-auto"
+            />
           </div>
         </div>
       </section>
@@ -200,11 +206,23 @@ export default function HomePage() {
           {/* Before/After */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-10">
             <div>
-              <PlaceholderImage label="Before/After 1" className="mb-2" />
+              <Image
+                src="/images/detail-fence-compare.jpg"
+                alt="Fence staining before and after comparison"
+                width={600}
+                height={400}
+                className="rounded-lg w-full h-auto"
+              />
               <p className="text-center text-sm text-gray-500">Fence Staining — Before &amp; After</p>
             </div>
             <div>
-              <PlaceholderImage label="Before/After 2" className="mb-2" />
+              <Image
+                src="/images/hero-driveway.jpg"
+                alt="Driveway sealing before and after"
+                width={600}
+                height={400}
+                className="rounded-lg w-full h-auto"
+              />
               <p className="text-center text-sm text-gray-500">Driveway Sealing — Before &amp; After</p>
             </div>
           </div>
