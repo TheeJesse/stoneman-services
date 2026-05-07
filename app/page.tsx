@@ -207,7 +207,7 @@ export default function HomePage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-10">
             <div>
               <Image
-                src="/images/detail-fence-compare.jpg"
+                src="/images/before-after-fence-1.jpg"
                 alt="Fence staining before and after comparison"
                 width={600}
                 height={400}
