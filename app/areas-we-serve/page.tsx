@@ -7,6 +7,19 @@ export const metadata: Metadata = {
     "Stoneman Services serves all of Middle Tennessee including Nashville, Franklin, Brentwood, Murfreesboro, Hendersonville, Mount Juliet, Gallatin, Lebanon, Smyrna, Spring Hill, and 38+ cities.",
 };
 
+const cityLinks: Record<string, string> = {
+  Nashville: "/fence-staining-nashville-tn",
+  Franklin: "/fence-staining-franklin-tn",
+  Brentwood: "/fence-staining-brentwood-tn",
+  Murfreesboro: "/fence-staining-murfreesboro-tn",
+  Hendersonville: "/fence-staining-hendersonville-tn",
+  "Mount Juliet": "/fence-staining-mount-juliet-tn",
+  Gallatin: "/fence-staining-gallatin-tn",
+  Lebanon: "/fence-staining-lebanon-tn",
+  Smyrna: "/fence-staining-smyrna-tn",
+  "Spring Hill": "/fence-staining-spring-hill-tn",
+};
+
 const cities = [
   "Alexandria", "Antioch", "Arrington", "Ashland City", "Belle Meade",
   "Berry Hill", "Brentwood", "Clarksville", "College Grove", "Columbia",
@@ -88,15 +101,28 @@ export default function AreasWeServePage() {
             Cities &amp; Towns We Serve
           </h2>
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 mb-8">
-            {cities.map((city) => (
-              <div
-                key={city}
-                className="bg-white rounded-lg px-4 py-3 text-sm font-medium text-center shadow-sm border border-gray-100"
-                style={{ color: "#1B4332" }}
-              >
-                📍 {city}
-              </div>
-            ))}
+            {cities.map((city) => {
+              const href = cityLinks[city];
+              const inner = <>{"\uD83D\uDCCD"} {city}</>;
+              return href ? (
+                <a
+                  key={city}
+                  href={href}
+                  className="bg-white rounded-lg px-4 py-3 text-sm font-medium text-center shadow-sm border border-gray-100 block hover:shadow-md transition-shadow"
+                  style={{ color: "#1B4332" }}
+                >
+                  {inner}
+                </a>
+              ) : (
+                <div
+                  key={city}
+                  className="bg-white rounded-lg px-4 py-3 text-sm font-medium text-center shadow-sm border border-gray-100"
+                  style={{ color: "#1B4332" }}
+                >
+                  {inner}
+                </div>
+              );
+            })}
           </div>
           <p className="text-center text-gray-500 text-sm italic mb-4">And many more surrounding communities!</p>
           <div className="text-center">
