@@ -146,8 +146,8 @@ export default function HomePage() {
           </div>
           <div className="flex-1 w-full max-w-lg">
             <Image
-              src="/images/hero-fence-1.jpg"
-              alt="Beautifully stained privacy fence in Nashville, TN"
+              src="/images/hero-promo.jpg"
+              alt="Cedar-stained fence and deck restoration project in Middle Tennessee"
               width={600}
               height={400}
               className="rounded-xl shadow-2xl w-full h-auto"
