@@ -12,7 +12,7 @@ export default function Header() {
         {/* Logo */}
         <Link href="/" className="flex flex-col leading-tight">
           <span className="text-xl font-bold tracking-wide">Stoneman Services</span>
-          <span className="text-xs" style={{ color: "#a47551" }}>Middle Tennessee's Wood Care Pros</span>
+          <span className="text-xs" style={{ color: "#a47551" }}>Middle Tennessee&apos;s Wood Care Pros</span>
         </Link>
 
         {/* Desktop Nav */}

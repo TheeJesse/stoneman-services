@@ -131,7 +131,7 @@ export default function AreasWeServePage() {
               <a href="/contact" className="font-semibold underline" style={{ color: "#8B5E3C" }}>
                 Contact us
               </a>{" "}
-              with your address and we'll let you know right away!
+              with your address and we&apos;ll let you know right away!
             </p>
           </div>
         </div>
