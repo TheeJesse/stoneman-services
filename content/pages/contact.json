@@ -1,0 +1,26 @@
+{
+  "hero": {
+    "heading": "Contact Us",
+    "subheading": "Ready for your free estimate? Give us a call, send a text, or fill out our quick form below."
+  },
+  "contacts": [
+    {
+      "name": "Ron Stoneman",
+      "phone": "615-403-8347",
+      "note": "Call or text anytime"
+    },
+    {
+      "name": "Matt Stoneman",
+      "phone": "615-479-6691",
+      "note": "Call or text anytime"
+    }
+  ],
+  "hours_label": "Monday – Sunday",
+  "hours_detail": "8:00 AM – 6:00 PM",
+  "location_city": "Hermitage, TN 37076",
+  "location_note": "Serving all of Middle Tennessee",
+  "form_heading": "Request a Free Estimate",
+  "form_intro": "Fill out our quick job request form and we'll get back to you, usually within a day or two.",
+  "form_url": "https://quoteiq-2.web.app/customer_form/5EuRgZilTHTJcCv2bwNSbGHPlrJ2-5EuRgZilTHTJcCv2bwNSbGHPlrJ2",
+  "service_area_note": "We serve Nashville, Franklin, Brentwood, Murfreesboro, Hendersonville, Mount Juliet, and all of Middle Tennessee."
+}

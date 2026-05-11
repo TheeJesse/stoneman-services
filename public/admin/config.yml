@@ -1,0 +1,226 @@
+backend:
+  name: github
+  repo: TheeJesse/stoneman-services
+  branch: master
+  base_url: https://stonemanservicestn.com
+  auth_endpoint: /api/auth
+
+# Media library — images stored in /public/images/
+media_folder: public/images
+public_folder: /images
+
+# Site URL for previews
+site_url: https://stonemanservicestn.com
+
+# CMS editor locale
+locale: en
+
+collections:
+  # ─── GLOBAL SETTINGS ──────────────────────────────────────────────────────
+  - name: settings
+    label: "⚙️ Global Settings"
+    files:
+      - name: site_settings
+        label: "Business Info & Contact"
+        file: content/settings.json
+        fields:
+          - { label: "Business Name", name: business_name, widget: string }
+          - { label: "Tagline", name: tagline, widget: string }
+          - { label: "Ron's Phone", name: phone_ron, widget: string, hint: "Format: 615-403-8347" }
+          - { label: "Matt's Phone", name: phone_matt, widget: string, hint: "Format: 615-479-6691" }
+          - { label: "City", name: address_city, widget: string }
+          - { label: "State", name: address_state, widget: string }
+          - { label: "ZIP Code", name: address_zip, widget: string }
+          - { label: "Hours", name: hours, widget: string }
+          - { label: "Email (optional)", name: email, widget: string, required: false }
+          - { label: "Facebook URL (optional)", name: facebook_url, widget: string, required: false }
+          - { label: "Instagram URL (optional)", name: instagram_url, widget: string, required: false }
+
+  # ─── PAGES ────────────────────────────────────────────────────────────────
+  - name: pages
+    label: "📄 Pages"
+    files:
+      # HOME PAGE
+      - name: home
+        label: "🏠 Home Page"
+        file: content/pages/home.json
+        fields:
+          - label: "Hero Section"
+            name: hero
+            widget: object
+            fields:
+              - { label: "Tagline (small text above heading)", name: tagline, widget: string }
+              - { label: "Main Heading", name: heading, widget: string }
+              - { label: "Subheading", name: subheading, widget: text }
+              - { label: "Hero Image", name: hero_image, widget: image }
+              - { label: "Hero Image Alt Text", name: hero_image_alt, widget: string }
+
+          - label: "Services Grid"
+            name: services
+            widget: list
+            fields:
+              - { label: "Icon (emoji)", name: icon, widget: string }
+              - { label: "Service Name", name: name, widget: string }
+              - { label: "Description", name: description, widget: text }
+
+          - label: "Before & After Photos"
+            name: before_after
+            widget: list
+            fields:
+              - { label: "Image", name: image, widget: image }
+              - { label: "Caption", name: caption, widget: string }
+
+          - label: "Why Choose Us"
+            name: why_us
+            widget: list
+            fields:
+              - { label: "Title", name: title, widget: string }
+              - { label: "Body", name: body, widget: text }
+
+          - label: "About Snippet"
+            name: about_snippet
+            widget: object
+            fields:
+              - { label: "Heading", name: heading, widget: string }
+              - { label: "Body Text", name: body, widget: text }
+
+      # ABOUT PAGE
+      - name: about
+        label: "👥 About Page"
+        file: content/pages/about.json
+        fields:
+          - label: "Hero Section"
+            name: hero
+            widget: object
+            fields:
+              - { label: "Heading", name: heading, widget: string }
+              - { label: "Subheading", name: subheading, widget: string }
+
+          - { label: "Team Photo", name: team_image, widget: image }
+          - { label: "Team Photo Alt Text", name: team_image_alt, widget: string }
+          - { label: "Story Section Heading", name: story_heading, widget: string }
+
+          - label: "Story Paragraphs"
+            name: story_paragraphs
+            widget: list
+            field: { label: "Paragraph", name: paragraph, widget: text }
+
+          - { label: "Why Families Section Heading", name: why_families_heading, widget: string }
+
+          - label: "Why Families Choose Us"
+            name: why_families
+            widget: list
+            field: { label: "Item", name: item, widget: string }
+
+          - { label: "Closing Text", name: closing_text, widget: text }
+          - { label: "Closing CTA Text", name: closing_cta, widget: string }
+          - { label: "CTA Banner Heading", name: cta_banner_heading, widget: string }
+
+      # SERVICES PAGE
+      - name: services
+        label: "🔧 Services Page"
+        file: content/pages/services.json
+        fields:
+          - label: "Hero Section"
+            name: hero
+            widget: object
+            fields:
+              - { label: "Heading", name: heading, widget: string }
+              - { label: "Subheading", name: subheading, widget: text }
+              - { label: "Climate Note", name: climate_note, widget: text }
+
+          - label: "Wood Care Services"
+            name: wood_services
+            widget: list
+            fields:
+              - { label: "Service Name", name: name, widget: string }
+              - { label: "Description", name: desc, widget: text }
+              - { label: "Photo", name: img, widget: image }
+
+          - label: "Driveway Services"
+            name: driveway_services
+            widget: list
+            fields:
+              - { label: "Service Name", name: name, widget: string }
+              - { label: "Description", name: desc, widget: text }
+
+          - label: "Our 5-Step Process"
+            name: process_steps
+            widget: list
+            fields:
+              - { label: "Step Title", name: title, widget: string }
+              - { label: "Step Description", name: body, widget: text }
+
+          - label: "Why We Stand Out"
+            name: why_stand_out
+            widget: list
+            field: { label: "Item", name: item, widget: string }
+
+          - { label: "CTA Banner Heading", name: cta_banner_heading, widget: string }
+
+      # CONTACT PAGE
+      - name: contact
+        label: "📞 Contact Page"
+        file: content/pages/contact.json
+        fields:
+          - label: "Hero Section"
+            name: hero
+            widget: object
+            fields:
+              - { label: "Heading", name: heading, widget: string }
+              - { label: "Subheading", name: subheading, widget: string }
+
+          - label: "Contact Cards"
+            name: contacts
+            widget: list
+            fields:
+              - { label: "Name", name: name, widget: string }
+              - { label: "Phone Number", name: phone, widget: string }
+              - { label: "Note", name: note, widget: string }
+
+          - { label: "Hours Label", name: hours_label, widget: string }
+          - { label: "Hours Detail", name: hours_detail, widget: string }
+          - { label: "Location", name: location_city, widget: string }
+          - { label: "Location Note", name: location_note, widget: string }
+          - { label: "Form Section Heading", name: form_heading, widget: string }
+          - { label: "Form Intro Text", name: form_intro, widget: text }
+          - { label: "Form URL (embed)", name: form_url, widget: string, hint: "The iframe src URL for the estimate form" }
+          - { label: "Service Area Note", name: service_area_note, widget: text }
+
+      # FAQ PAGE
+      - name: faq
+        label: "❓ FAQ Page"
+        file: content/pages/faq.json
+        fields:
+          - label: "Hero Section"
+            name: hero
+            widget: object
+            fields:
+              - { label: "Heading", name: heading, widget: string }
+              - { label: "Subheading", name: subheading, widget: text }
+
+          - label: "FAQ Categories"
+            name: categories
+            widget: list
+            fields:
+              - { label: "Category Title", name: title, widget: string }
+              - label: "Questions"
+                name: questions
+                widget: list
+                fields:
+                  - { label: "Question", name: q, widget: string }
+                  - { label: "Answer", name: a, widget: text }
+
+          - { label: "CTA Banner Heading", name: cta_banner_heading, widget: string }
+
+  # ─── MEDIA LIBRARY (standalone) ───────────────────────────────────────────
+  - name: photos
+    label: "🖼️ Photo Gallery"
+    folder: public/images
+    create: true
+    slug: "{{fields.title | slugify}}"
+    media_folder: ""
+    public_folder: ""
+    fields:
+      - { label: "Title / Description", name: title, widget: string }
+      - { label: "Photo", name: photo, widget: image }

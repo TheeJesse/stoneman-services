@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import CTABanner from "../components/CTABanner";
+import content from "../../content/pages/services.json";
 
 export const metadata: Metadata = {
   title: "Our Services – Professional Fence, Deck & Driveway Care in Middle Tennessee",
@@ -16,8 +17,7 @@ const serviceSchema = [
     provider: { "@type": "LocalBusiness", name: "Stoneman Services" },
     serviceType: "Fence Staining and Sealing",
     areaServed: "Middle Tennessee",
-    description:
-      "Professional cleaning, staining, and sealing for privacy fences, picket fences, and farm fences.",
+    description: "Professional cleaning, staining, and sealing for privacy fences, picket fences, and farm fences.",
   },
   {
     "@context": "https://schema.org",
@@ -26,8 +26,7 @@ const serviceSchema = [
     provider: { "@type": "LocalBusiness", name: "Stoneman Services" },
     serviceType: "Deck and Pergola Staining and Sealing",
     areaServed: "Middle Tennessee",
-    description:
-      "Expert cleaning, staining, sealing, and care for decks, pergolas, and other outdoor wood structures.",
+    description: "Expert cleaning, staining, sealing, and care for decks, pergolas, and other outdoor wood structures.",
   },
   {
     "@context": "https://schema.org",
@@ -36,97 +35,13 @@ const serviceSchema = [
     provider: { "@type": "LocalBusiness", name: "Stoneman Services" },
     serviceType: "Driveway Services",
     areaServed: "Middle Tennessee",
-    description:
-      "Cleaning, staining, sealing, and minor crack repair for aggregate and blacktop driveways.",
-  },
-  {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    name: "Pressure Washing",
-    provider: { "@type": "LocalBusiness", name: "Stoneman Services" },
-    serviceType: "Pressure Washing",
-    areaServed: "Middle Tennessee",
-    description:
-      "Professional pressure washing for fences, decks, driveways, and exterior surfaces.",
-  },
-];
-
-const woodServices = [
-  {
-    name: "Fence Staining & Sealing",
-    desc: "We clean, brighten, and apply high-quality stain and sealer to privacy fences, picket fences, and farm fences. This protects the wood and gives it a fresh, even finish.",
-    img: "/images/hero-fence-cedar.jpg",
-  },
-  {
-    name: "Deck & Pergola Care",
-    desc: "Full cleaning, staining, and sealing for decks, pergolas, arbors, and other outdoor wood structures. We make your outdoor living spaces look beautiful and stay protected.",
-    img: "/images/hero-deck-1.jpg",
-  },
-  {
-    name: "New Build Stain Finishes",
-    desc: "Perfect first-time staining for newly installed fences, decks, and wood structures. We help you choose the right color and finish for long-lasting beauty.",
-    img: "/images/hero-fence-deck-combo.jpg",
-  },
-  {
-    name: "Maintenance Coats & Cleaning",
-    desc: "Regular maintenance keeps your wood in top condition. We provide yearly or bi-yearly cleaning and fresh maintenance coats to extend the life of your fence or deck.",
-    img: "/images/action-staining-railing.jpg",
-  },
-  {
-    name: "Full Restorations & Minor Repairs",
-    desc: "We restore older or weathered wood structures. This includes deep cleaning, minor board replacement, tightening hardware, and complete refinishing so your fence or deck looks like new again.",
-    img: "/images/before-after-deck-1.jpg",
-  },
-];
-
-const driveServices = [
-  {
-    name: "Driveway Cleaning & Brightening",
-    desc: "We thoroughly clean aggregate and blacktop driveways to remove dirt, stains, mildew, and tire marks for a fresh appearance.",
-  },
-  {
-    name: "Aggregate Driveway Staining & Sealing",
-    desc: "Professional staining and sealing that protects your gravel-style driveway from water damage, UV fading, and wear.",
-  },
-  {
-    name: "Blacktop / Asphalt Driveway Sealing",
-    desc: "High-quality sealing that extends the life of your asphalt driveway and gives it a clean, dark finish.",
-  },
-  {
-    name: "Driveway Crack Repair & Patching",
-    desc: "We fill minor cracks and patch small damaged areas to prevent bigger problems and keep your driveway looking smooth and well-maintained.",
-  },
-];
-
-const process = [
-  {
-    n: "1",
-    title: "Free On-Site Estimate",
-    body: "We visit your property, inspect the fence/driveway, and give you clear recommendations and pricing.",
-  },
-  {
-    n: "2",
-    title: "Thorough Cleaning",
-    body: "We remove dirt, mildew, and old finishes so new stain or sealer bonds properly.",
-  },
-  {
-    n: "3",
-    title: "Repairs (if needed)",
-    body: "Minor fixes are completed before finishing.",
-  },
-  {
-    n: "4",
-    title: "Professional Application",
-    body: "We apply premium products using the best methods for even coverage and deep protection.",
-  },
-  {
-    n: "5",
-    title: "Final Walkthrough",
-    body: "We clean up the site and make sure you're 100% happy with the results.",
+    description: "Cleaning, staining, sealing, and minor crack repair for aggregate and blacktop driveways.",
   },
 ];
 
 export default function ServicesPage() {
+  const { hero, wood_services, driveway_services, process_steps, why_stand_out, cta_banner_heading } = content;
+
   return (
     <>
       <script
@@ -138,13 +53,13 @@ export default function ServicesPage() {
       <section style={{ backgroundColor: "#1B4332" }} className="text-white py-16 px-4">
         <div className="max-w-4xl mx-auto text-center">
           <h1 className="text-3xl md:text-5xl font-extrabold mb-5">
-            Our Services – Professional Fence, Deck &amp; Driveway Care in Middle Tennessee
+            {hero.heading}
           </h1>
           <p className="text-gray-300 text-lg max-w-2xl mx-auto mb-7">
-            We provide expert cleaning, staining, sealing, and restoration services for wood structures and driveways across Nashville, Franklin, Brentwood, Murfreesboro, and all of Middle Tennessee.
+            {hero.subheading}
           </p>
           <p className="text-gray-400 text-sm max-w-xl mx-auto">
-            Our work is built for our local climate — protecting against heavy rain, high humidity, and strong sun so your property looks great and lasts longer.
+            {hero.climate_note}
           </p>
         </div>
       </section>
@@ -166,7 +81,7 @@ export default function ServicesPage() {
             🌲 Wood Care Services
           </h2>
           <div className="space-y-12">
-            {woodServices.map((svc, i) => (
+            {wood_services.map((svc, i) => (
               <div
                 key={svc.name}
                 className={`flex flex-col ${i % 2 === 1 ? "md:flex-row-reverse" : "md:flex-row"} gap-8 items-center`}
@@ -197,7 +112,7 @@ export default function ServicesPage() {
             🛣️ Driveway Services
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {driveServices.map((svc) => (
+            {driveway_services.map((svc) => (
               <div key={svc.name} className="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
                 <h3 className="font-bold text-lg mb-2" style={{ color: "#1B4332" }}>{svc.name}</h3>
                 <p className="text-gray-600 text-sm">{svc.desc}</p>
@@ -220,16 +135,16 @@ export default function ServicesPage() {
       <section id="process" className="py-16 px-4" style={{ backgroundColor: "#F0EBE3" }}>
         <div className="max-w-4xl mx-auto">
           <h2 className="text-2xl md:text-3xl font-bold mb-10 text-center" style={{ color: "#1B4332" }}>
-            Our 5-Step Process
+            Our {process_steps.length}-Step Process
           </h2>
           <div className="space-y-6">
-            {process.map((step) => (
-              <div key={step.n} className="flex gap-5 items-start bg-white rounded-xl p-5 shadow-sm">
+            {process_steps.map((step, i) => (
+              <div key={step.title} className="flex gap-5 items-start bg-white rounded-xl p-5 shadow-sm">
                 <div
                   className="w-10 h-10 rounded-full flex-shrink-0 flex items-center justify-center text-white font-bold text-lg"
                   style={{ backgroundColor: "#1B4332" }}
                 >
-                  {step.n}
+                  {i + 1}
                 </div>
                 <div>
                   <h3 className="font-bold text-base mb-1" style={{ color: "#1B4332" }}>{step.title}</h3>
@@ -248,12 +163,7 @@ export default function ServicesPage() {
             Why Our Services Stand Out
           </h2>
           <ul className="space-y-3">
-            {[
-              "Tailored for Middle Tennessee weather",
-              "Experienced crew and quality materials",
-              "Clear communication and no surprises",
-              "Satisfaction guaranteed",
-            ].map((item) => (
+            {why_stand_out.map((item) => (
               <li key={item} className="flex items-center gap-3 text-gray-700">
                 <span style={{ color: "#1B4332" }}>✅</span>
                 <span>{item}</span>
@@ -263,9 +173,8 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      <CTABanner heading="Ready to protect and improve your property?" />
+      <CTABanner heading={cta_banner_heading} />
 
-      {/* FAQ link */}
       <div className="text-center py-8 px-4" style={{ backgroundColor: "#FAF7F2" }}>
         <p className="text-gray-600 text-sm">
           Have questions?{" "}

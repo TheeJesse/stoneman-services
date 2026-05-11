@@ -1,0 +1,77 @@
+{
+  "hero": {
+    "tagline": "Middle Tennessee's Wood Care Pros",
+    "heading": "Your GO-TO Professional Staining & Sealing Company in Middle TN",
+    "subheading": "From fences and decks to driveways — we protect and restore your property with professional care that lasts.",
+    "hero_image": "/images/hero-promo.jpg",
+    "hero_image_alt": "Cedar-stained fence and deck restoration project in Middle Tennessee"
+  },
+  "services": [
+    {
+      "icon": "🌲",
+      "name": "Fence & Wood Structure Care",
+      "description": "Professional cleaning, staining, sealing, and restoration for fences, decks, pergolas, and more."
+    },
+    {
+      "icon": "✨",
+      "name": "New Builds Staining",
+      "description": "Beautiful first-time finish coats to keep your new wood protected from day one."
+    },
+    {
+      "icon": "🛣️",
+      "name": "Driveway Cleaning & Sealing",
+      "description": "Thorough cleaning, staining, and sealing for aggregate and blacktop driveways."
+    },
+    {
+      "icon": "🔧",
+      "name": "Driveway Repair",
+      "description": "Minor crack filling, patching, and surface repairs for longer-lasting driveways."
+    },
+    {
+      "icon": "🔄",
+      "name": "Full Restorations",
+      "description": "Complete refresh including cleaning, repairs, and protection for tired wood and hardscapes."
+    },
+    {
+      "icon": "📅",
+      "name": "Maintenance Plans",
+      "description": "Scheduled cleanings and touch-ups to protect your investment year after year."
+    }
+  ],
+  "before_after": [
+    {
+      "image": "/images/before-after-fence-1.jpg",
+      "caption": "Fence Staining — Before & After"
+    },
+    {
+      "image": "/images/hero-driveway.jpg",
+      "caption": "Driveway Sealing — Before & After"
+    }
+  ],
+  "why_us": [
+    {
+      "title": "We Care Like It's Our Own",
+      "body": "We treat your fence and property with the same pride we'd give our own home."
+    },
+    {
+      "title": "Expert Local Knowledge",
+      "body": "We understand Middle Tennessee's tough weather and use proven methods for lasting results."
+    },
+    {
+      "title": "Professional Craftsmanship",
+      "body": "Specialized training, best practices, and quality products mean a clean, even finish every time."
+    },
+    {
+      "title": "No-Nonsense Service",
+      "body": "Straightforward communication, no ego, and full attention to detail."
+    },
+    {
+      "title": "We Stand Behind Our Work",
+      "body": "Zero insurance claims, 100% satisfaction guarantee, and we never leave a customer unhappy."
+    }
+  ],
+  "about_snippet": {
+    "heading": "A Father & Son Team You Can Trust",
+    "body": "We are Ron and Matt Stoneman. Since 2019, we've been protecting and beautifying fences, decks, pergolas, and driveways across Middle Tennessee — with the same care and pride we'd bring to our own property."
+  }
+}

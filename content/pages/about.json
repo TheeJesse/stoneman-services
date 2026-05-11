@@ -1,0 +1,25 @@
+{
+  "hero": {
+    "heading": "Stoneman Services — A Father & Son Team Serving Middle Tennessee",
+    "subheading": "Honest work. Quality results. Since 2019."
+  },
+  "team_image": "/images/before-after-fence-team.jpg",
+  "team_image_alt": "Ron and Matt Stoneman — Stoneman Services",
+  "story_heading": "Our Story",
+  "story_paragraphs": [
+    "We are Ron and Matt Stoneman, a father-and-son team who own and operate Stoneman Services. Since 2019 we have been helping homeowners in Nashville, Franklin, Brentwood, Murfreesboro, and surrounding areas protect and beautify their fences, decks, pergolas, and driveways.",
+    "Ron started the company with a simple goal: deliver honest, high-quality wood care the way he cares for his own property. With decades of entrepreneurial experience and a lifelong love for the outdoors, Ron brings strong craftsmanship and integrity to every job. He is inspired by his 30-year friendship with the owner of MidCenter Fence Company — a relationship built on family values, hard work, and doing things the right way. Many of our fence and deck projects still come through trusted referrals from that friendship.",
+    "Matt joined as a full partner after years of working alongside his dad. He learned the value of hard work early — starting his own lawn care business at age 13 — and continues to run specialized landscaping services. Matt's passion for gardening, environmental responsibility, and healthy living led him naturally to wood care. By protecting existing wood with low-VOC products, we help reduce the need for new lumber. It's a win for our customers and the environment."
+  ],
+  "why_families_heading": "Why Families Choose Us",
+  "why_families": [
+    "We treat every property like it's our own",
+    "Clear communication with no ego or surprises",
+    "Professional training and proven methods built for Middle Tennessee weather",
+    "Strong focus on quality, satisfaction, and fair pricing",
+    "A true family business — we genuinely enjoy working together and building lasting customer relationships"
+  ],
+  "closing_text": "From the first estimate to the final walkthrough, our goal is simple: do excellent work, earn your trust, and leave you smiling. We love what we do, and it shows in the results.",
+  "closing_cta": "Ready to give your fence or driveway the care it deserves?",
+  "cta_banner_heading": "Contact us today for a free estimate."
+}

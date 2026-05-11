@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import content from "../../content/pages/contact.json";
 
 export const metadata: Metadata = {
   title: "Contact Us – Get a Free Estimate from Stoneman Services",
@@ -13,10 +14,10 @@ export default function ContactPage() {
       <section style={{ backgroundColor: "#1B4332" }} className="text-white py-14 px-4">
         <div className="max-w-3xl mx-auto text-center">
           <h1 className="text-3xl md:text-4xl font-extrabold mb-4">
-            Contact Us
+            {content.hero.heading}
           </h1>
           <p className="text-gray-300 text-base">
-            Ready for your free estimate? Give us a call, send a text, or fill out our quick form below.
+            {content.hero.subheading}
           </p>
         </div>
       </section>
@@ -30,63 +31,53 @@ export default function ContactPage() {
               Get In Touch
             </h2>
             <div className="space-y-6">
-              <div className="bg-white rounded-xl p-5 shadow-sm border border-gray-100">
-                <p className="text-sm text-gray-500 uppercase tracking-wide mb-1">Ron Stoneman</p>
-                <a
-                  href="tel:6154038347"
-                  className="text-2xl font-bold hover:underline"
-                  style={{ color: "#1B4332" }}
-                >
-                  (615) 403-8347
-                </a>
-                <p className="text-gray-500 text-sm mt-1">Call or text anytime</p>
-              </div>
-
-              <div className="bg-white rounded-xl p-5 shadow-sm border border-gray-100">
-                <p className="text-sm text-gray-500 uppercase tracking-wide mb-1">Matt Stoneman</p>
-                <a
-                  href="tel:6154796691"
-                  className="text-2xl font-bold hover:underline"
-                  style={{ color: "#1B4332" }}
-                >
-                  (615) 479-6691
-                </a>
-                <p className="text-gray-500 text-sm mt-1">Call or text anytime</p>
-              </div>
+              {content.contacts.map((contact) => (
+                <div key={contact.name} className="bg-white rounded-xl p-5 shadow-sm border border-gray-100">
+                  <p className="text-sm text-gray-500 uppercase tracking-wide mb-1">{contact.name}</p>
+                  <a
+                    href={`tel:${contact.phone.replace(/-/g, "")}`}
+                    className="text-2xl font-bold hover:underline"
+                    style={{ color: "#1B4332" }}
+                  >
+                    ({contact.phone})
+                  </a>
+                  <p className="text-gray-500 text-sm mt-1">{contact.note}</p>
+                </div>
+              ))}
 
               <div className="bg-white rounded-xl p-5 shadow-sm border border-gray-100">
                 <p className="text-sm text-gray-500 uppercase tracking-wide mb-1">Hours</p>
-                <p className="font-semibold" style={{ color: "#1B4332" }}>Monday – Sunday</p>
-                <p className="text-gray-600">8:00 AM – 6:00 PM</p>
+                <p className="font-semibold" style={{ color: "#1B4332" }}>{content.hours_label}</p>
+                <p className="text-gray-600">{content.hours_detail}</p>
               </div>
 
               <div className="bg-white rounded-xl p-5 shadow-sm border border-gray-100">
                 <p className="text-sm text-gray-500 uppercase tracking-wide mb-1">Location</p>
-                <p className="font-semibold" style={{ color: "#1B4332" }}>Hermitage, TN 37076</p>
-                <p className="text-gray-600 text-sm mt-1">Serving all of Middle Tennessee</p>
+                <p className="font-semibold" style={{ color: "#1B4332" }}>{content.location_city}</p>
+                <p className="text-gray-600 text-sm mt-1">{content.location_note}</p>
               </div>
             </div>
           </div>
 
-          {/* Jobber Form */}
+          {/* Form */}
           <div>
             <h2 className="text-2xl font-bold mb-6" style={{ color: "#1B4332" }}>
-              Request a Free Estimate
+              {content.form_heading}
             </h2>
             <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
               <p className="text-gray-500 text-sm mb-5">
-                Fill out our quick job request form and we'll get back to you, usually within a day or two.
+                {content.form_intro}
               </p>
 
               <iframe
-                src="https://quoteiq-2.web.app/customer_form/5EuRgZilTHTJcCv2bwNSbGHPlrJ2-5EuRgZilTHTJcCv2bwNSbGHPlrJ2"
+                src={content.form_url}
                 className="w-full rounded-lg border-0"
                 style={{ minHeight: "600px" }}
                 title="Request a Free Estimate"
               />
 
               <p className="text-center text-xs text-gray-400">
-                Or call us directly — we're friendly and happy to answer questions!
+                Or call us directly — we&apos;re friendly and happy to answer questions!
               </p>
             </div>
           </div>
@@ -97,7 +88,7 @@ export default function ContactPage() {
       <section className="py-10 px-4 bg-white text-center">
         <div className="max-w-2xl mx-auto">
           <p className="text-gray-600 text-sm">
-            We serve Nashville, Franklin, Brentwood, Murfreesboro, Hendersonville, Mount Juliet, and all of Middle Tennessee.{" "}
+            {content.service_area_note}{" "}
             <a href="/areas-we-serve" className="font-semibold underline" style={{ color: "#1B4332" }}>
               See full service area →
             </a>

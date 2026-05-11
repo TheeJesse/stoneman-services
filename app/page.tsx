@@ -2,9 +2,11 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import CTABanner from "./components/CTABanner";
+import homeContent from "../content/pages/home.json";
+import settings from "../content/settings.json";
 
 export const metadata: Metadata = {
-  title: "Stoneman Services | Professional Fence Staining & Deck Sealing in Middle Tennessee",
+  title: `${settings.business_name} | Professional Fence Staining & Deck Sealing in Middle Tennessee`,
   description:
     "Your GO-TO professional staining and sealing company in Middle TN. Fences, decks, driveways — we protect and restore your property with expert care.",
 };
@@ -12,30 +14,21 @@ export const metadata: Metadata = {
 const localBusinessSchema = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
-  name: "Stoneman Services",
+  name: settings.business_name,
   description:
     "Professional fence staining, deck sealing, driveway cleaning, pressure washing, and wood restoration services in Middle Tennessee.",
   url: "https://stonemanservicestn.com",
-  telephone: "615-403-8347",
+  telephone: settings.phone_ron,
   address: {
     "@type": "PostalAddress",
-    addressLocality: "Hermitage",
-    addressRegion: "TN",
-    postalCode: "37076",
+    addressLocality: settings.address_city,
+    addressRegion: settings.address_state,
+    postalCode: settings.address_zip,
     addressCountry: "US",
   },
   areaServed: [
-    "Nashville",
-    "Franklin",
-    "Brentwood",
-    "Murfreesboro",
-    "Hendersonville",
-    "Mount Juliet",
-    "Gallatin",
-    "Lebanon",
-    "Smyrna",
-    "Spring Hill",
-    "Middle Tennessee",
+    "Nashville", "Franklin", "Brentwood", "Murfreesboro", "Hendersonville",
+    "Mount Juliet", "Gallatin", "Lebanon", "Smyrna", "Spring Hill", "Middle Tennessee",
   ],
   openingHours: "Mo-Su 08:00-18:00",
   priceRange: "$$",
@@ -43,69 +36,9 @@ const localBusinessSchema = {
   foundingDate: "2019",
 };
 
-const services = [
-  {
-    icon: "🌲",
-    name: "Fence & Wood Structure Care",
-    description:
-      "Professional cleaning, staining, sealing, and restoration for fences, decks, pergolas, and more.",
-  },
-  {
-    icon: "✨",
-    name: "New Builds Staining",
-    description:
-      "Beautiful first-time finish coats to keep your new wood protected from day one.",
-  },
-  {
-    icon: "🛣️",
-    name: "Driveway Cleaning & Sealing",
-    description:
-      "Thorough cleaning, staining, and sealing for aggregate and blacktop driveways.",
-  },
-  {
-    icon: "🔧",
-    name: "Driveway Repair",
-    description:
-      "Minor crack filling, patching, and surface repairs for longer-lasting driveways.",
-  },
-  {
-    icon: "🔄",
-    name: "Full Restorations",
-    description:
-      "Complete refresh including cleaning, repairs, and protection for tired wood and hardscapes.",
-  },
-  {
-    icon: "📅",
-    name: "Maintenance Plans",
-    description:
-      "Scheduled cleanings and touch-ups to protect your investment year after year.",
-  },
-];
-
-const whyUs = [
-  {
-    title: "We Care Like It's Our Own",
-    body: "We treat your fence and property with the same pride we'd give our own home.",
-  },
-  {
-    title: "Expert Local Knowledge",
-    body: "We understand Middle Tennessee's tough weather and use proven methods for lasting results.",
-  },
-  {
-    title: "Professional Craftsmanship",
-    body: "Specialized training, best practices, and quality products mean a clean, even finish every time.",
-  },
-  {
-    title: "No-Nonsense Service",
-    body: "Straightforward communication, no ego, and full attention to detail.",
-  },
-  {
-    title: "We Stand Behind Our Work",
-    body: "Zero insurance claims, 100% satisfaction guarantee, and we never leave a customer unhappy.",
-  },
-];
-
 export default function HomePage() {
+  const { hero, services, before_after, why_us, about_snippet } = homeContent;
+
   return (
     <>
       <script
@@ -118,13 +51,13 @@ export default function HomePage() {
         <div className="max-w-6xl mx-auto px-4 py-16 md:py-24 flex flex-col md:flex-row items-center gap-10">
           <div className="flex-1 text-center md:text-left">
             <p className="text-sm uppercase tracking-widest mb-3" style={{ color: "#a47551" }}>
-              Middle Tennessee's Wood Care Pros
+              {hero.tagline}
             </p>
             <h1 className="text-4xl md:text-5xl font-extrabold leading-tight mb-5">
-              Your GO-TO Professional Staining &amp; Sealing Company in Middle TN
+              {hero.heading}
             </h1>
             <p className="text-gray-300 text-lg mb-8 max-w-xl">
-              From fences and decks to driveways — we protect and restore your property with professional care that lasts.
+              {hero.subheading}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
               <a
@@ -137,17 +70,17 @@ export default function HomePage() {
                 Get a Free Estimate →
               </a>
               <a
-                href="tel:6154038347"
+                href={`tel:${settings.phone_ron.replace(/-/g, "")}`}
                 className="px-8 py-4 rounded-full font-bold border-2 border-white text-white text-base hover:bg-white hover:text-green-900 transition-colors"
               >
-                📞 (615) 403-8347
+                📞 ({settings.phone_ron})
               </a>
             </div>
           </div>
           <div className="flex-1 w-full max-w-lg">
             <Image
-              src="/images/hero-promo.jpg"
-              alt="Cedar-stained fence and deck restoration project in Middle Tennessee"
+              src={hero.hero_image}
+              alt={hero.hero_image_alt}
               width={600}
               height={400}
               className="rounded-xl shadow-2xl w-full h-auto"
@@ -168,7 +101,6 @@ export default function HomePage() {
             </p>
           </div>
 
-          {/* Top CTA */}
           <div className="text-center mb-10">
             <a
               href="/contact"
@@ -205,29 +137,20 @@ export default function HomePage() {
 
           {/* Before/After */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-10">
-            <div>
-              <Image
-                src="/images/before-after-fence-1.jpg"
-                alt="Fence staining before and after comparison"
-                width={600}
-                height={400}
-                className="rounded-lg w-full h-auto"
-              />
-              <p className="text-center text-sm text-gray-500">Fence Staining — Before &amp; After</p>
-            </div>
-            <div>
-              <Image
-                src="/images/hero-driveway.jpg"
-                alt="Driveway sealing before and after"
-                width={600}
-                height={400}
-                className="rounded-lg w-full h-auto"
-              />
-              <p className="text-center text-sm text-gray-500">Driveway Sealing — Before &amp; After</p>
-            </div>
+            {before_after.map((item) => (
+              <div key={item.caption}>
+                <Image
+                  src={item.image}
+                  alt={item.caption}
+                  width={600}
+                  height={400}
+                  className="rounded-lg w-full h-auto"
+                />
+                <p className="text-center text-sm text-gray-500">{item.caption}</p>
+              </div>
+            ))}
           </div>
 
-          {/* Bottom CTA */}
           <div className="text-center">
             <a
               href="/contact"
@@ -249,7 +172,7 @@ export default function HomePage() {
             Why Choose Us?
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {whyUs.map((item) => (
+            {why_us.map((item) => (
               <div key={item.title} className="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
                 <div className="text-2xl mb-3">✅</div>
                 <h3 className="font-bold text-lg mb-2" style={{ color: "#1B4332" }}>
@@ -266,10 +189,10 @@ export default function HomePage() {
       <section className="py-16 px-4 bg-white">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl font-bold mb-4" style={{ color: "#1B4332" }}>
-            A Father &amp; Son Team You Can Trust
+            {about_snippet.heading}
           </h2>
           <p className="text-gray-600 text-base mb-6">
-            We are Ron and Matt Stoneman. Since 2019, we've been protecting and beautifying fences, decks, pergolas, and driveways across Middle Tennessee — with the same care and pride we'd bring to our own property.
+            {about_snippet.body}
           </p>
           <Link
             href="/about"

@@ -1,0 +1,81 @@
+{
+  "hero": {
+    "heading": "Our Services – Professional Fence, Deck & Driveway Care in Middle Tennessee",
+    "subheading": "We provide expert cleaning, staining, sealing, and restoration services for wood structures and driveways across Nashville, Franklin, Brentwood, Murfreesboro, and all of Middle Tennessee.",
+    "climate_note": "Our work is built for our local climate — protecting against heavy rain, high humidity, and strong sun so your property looks great and lasts longer."
+  },
+  "wood_services": [
+    {
+      "name": "Fence Staining & Sealing",
+      "desc": "We clean, brighten, and apply high-quality stain and sealer to privacy fences, picket fences, and farm fences. This protects the wood and gives it a fresh, even finish.",
+      "img": "/images/hero-fence-cedar.jpg"
+    },
+    {
+      "name": "Deck & Pergola Care",
+      "desc": "Full cleaning, staining, and sealing for decks, pergolas, arbors, and other outdoor wood structures. We make your outdoor living spaces look beautiful and stay protected.",
+      "img": "/images/hero-deck-1.jpg"
+    },
+    {
+      "name": "New Build Stain Finishes",
+      "desc": "Perfect first-time staining for newly installed fences, decks, and wood structures. We help you choose the right color and finish for long-lasting beauty.",
+      "img": "/images/hero-fence-deck-combo.jpg"
+    },
+    {
+      "name": "Maintenance Coats & Cleaning",
+      "desc": "Regular maintenance keeps your wood in top condition. We provide yearly or bi-yearly cleaning and fresh maintenance coats to extend the life of your fence or deck.",
+      "img": "/images/action-staining-railing.jpg"
+    },
+    {
+      "name": "Full Restorations & Minor Repairs",
+      "desc": "We restore older or weathered wood structures. This includes deep cleaning, minor board replacement, tightening hardware, and complete refinishing so your fence or deck looks like new again.",
+      "img": "/images/before-after-deck-1.jpg"
+    }
+  ],
+  "driveway_services": [
+    {
+      "name": "Driveway Cleaning & Brightening",
+      "desc": "We thoroughly clean aggregate and blacktop driveways to remove dirt, stains, mildew, and tire marks for a fresh appearance."
+    },
+    {
+      "name": "Aggregate Driveway Staining & Sealing",
+      "desc": "Professional staining and sealing that protects your gravel-style driveway from water damage, UV fading, and wear."
+    },
+    {
+      "name": "Blacktop / Asphalt Driveway Sealing",
+      "desc": "High-quality sealing that extends the life of your asphalt driveway and gives it a clean, dark finish."
+    },
+    {
+      "name": "Driveway Crack Repair & Patching",
+      "desc": "We fill minor cracks and patch small damaged areas to prevent bigger problems and keep your driveway looking smooth and well-maintained."
+    }
+  ],
+  "process_steps": [
+    {
+      "title": "Free On-Site Estimate",
+      "body": "We visit your property, inspect the fence/driveway, and give you clear recommendations and pricing."
+    },
+    {
+      "title": "Thorough Cleaning",
+      "body": "We remove dirt, mildew, and old finishes so new stain or sealer bonds properly."
+    },
+    {
+      "title": "Repairs (if needed)",
+      "body": "Minor fixes are completed before finishing."
+    },
+    {
+      "title": "Professional Application",
+      "body": "We apply premium products using the best methods for even coverage and deep protection."
+    },
+    {
+      "title": "Final Walkthrough",
+      "body": "We clean up the site and make sure you're 100% happy with the results."
+    }
+  ],
+  "why_stand_out": [
+    "Tailored for Middle Tennessee weather",
+    "Experienced crew and quality materials",
+    "Clear communication and no surprises",
+    "Satisfaction guaranteed"
+  ],
+  "cta_banner_heading": "Ready to protect and improve your property?"
+}
