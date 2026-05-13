@@ -1,50 +1,42 @@
-import { put, del } from "@vercel/blob";
+import { handleUpload, type HandleUploadBody } from "@vercel/blob/client";
 import { NextRequest, NextResponse } from "next/server";
+
+export const maxDuration = 60;
 
 const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD ?? "stoneman2024";
 
-export async function POST(request: NextRequest) {
-  const authHeader = request.headers.get("x-admin-password");
-  if (authHeader !== ADMIN_PASSWORD) {
-    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+export async function POST(request: NextRequest): Promise<NextResponse> {
+  try {
+    const body = (await request.json()) as HandleUploadBody;
+
+    const jsonResponse = await handleUpload({
+      body,
+      request,
+      onBeforeGenerateToken: async (_pathname, clientPayload) => {
+        if (clientPayload !== ADMIN_PASSWORD) {
+          throw new Error("Unauthorized");
+        }
+        return {
+          allowedContentTypes: [
+            "image/jpeg",
+            "image/jpg",
+            "image/png",
+            "image/webp",
+            "image/heic",
+            "image/heif",
+          ],
+          maximumSizeInBytes: 20 * 1024 * 1024, // 20MB
+        };
+      },
+      onUploadCompleted: async ({ blob }) => {
+        console.log("Upload complete:", blob.url);
+      },
+    });
+
+    return NextResponse.json(jsonResponse);
+  } catch (error) {
+    const message = (error as Error).message ?? "Upload failed";
+    const status = message === "Unauthorized" ? 401 : 500;
+    return NextResponse.json({ error: message }, { status });
   }
-
-  const formData = await request.formData();
-  const file = formData.get("file") as File;
-  const label = (formData.get("label") as string) || "";
-  const type = (formData.get("type") as string) || "single"; // "before" | "after" | "single"
-  const groupId = (formData.get("groupId") as string) || Date.now().toString();
-
-  if (!file) {
-    return NextResponse.json({ error: "No file provided" }, { status: 400 });
-  }
-
-  const ext = file.name.split(".").pop();
-  const filename = `gallery/${groupId}_${type}_${Date.now()}.${ext}`;
-
-  const blob = await put(filename, file, {
-    access: "public",
-    contentType: file.type,
-    addRandomSuffix: false,
-  });
-
-  return NextResponse.json({
-    url: blob.url,
-    label,
-    type,
-    groupId,
-  });
-}
-
-export async function DELETE(request: NextRequest) {
-  const authHeader = request.headers.get("x-admin-password");
-  if (authHeader !== ADMIN_PASSWORD) {
-    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
-  }
-
-  const { url } = await request.json();
-  if (!url) return NextResponse.json({ error: "No URL provided" }, { status: 400 });
-
-  await del(url);
-  return NextResponse.json({ success: true });
 }
