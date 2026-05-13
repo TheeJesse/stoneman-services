@@ -19,6 +19,7 @@ export default function Header() {
         <nav className="hidden md:flex items-center gap-6 text-sm font-medium">
           <Link href="/" className="hover:text-yellow-200 transition-colors">Home</Link>
           <Link href="/services" className="hover:text-yellow-200 transition-colors">Services</Link>
+          <Link href="/gallery" className="hover:text-yellow-200 transition-colors">Gallery</Link>
           <Link href="/faq" className="hover:text-yellow-200 transition-colors">FAQ</Link>
           <Link href="/about" className="hover:text-yellow-200 transition-colors">About</Link>
           <Link href="/areas-we-serve" className="hover:text-yellow-200 transition-colors">Areas We Serve</Link>
@@ -51,6 +52,7 @@ export default function Header() {
         <div style={{ backgroundColor: "#0f2a1f" }} className="md:hidden px-4 pb-4 flex flex-col gap-3 text-sm font-medium">
           <Link href="/" onClick={() => setMenuOpen(false)} className="py-2 border-b border-green-800 hover:text-yellow-200">Home</Link>
           <Link href="/services" onClick={() => setMenuOpen(false)} className="py-2 border-b border-green-800 hover:text-yellow-200">Services</Link>
+          <Link href="/gallery" onClick={() => setMenuOpen(false)} className="py-2 border-b border-green-800 hover:text-yellow-200">Gallery</Link>
           <Link href="/faq" onClick={() => setMenuOpen(false)} className="py-2 border-b border-green-800 hover:text-yellow-200">FAQ</Link>
           <Link href="/about" onClick={() => setMenuOpen(false)} className="py-2 border-b border-green-800 hover:text-yellow-200">About</Link>
           <Link href="/areas-we-serve" onClick={() => setMenuOpen(false)} className="py-2 border-b border-green-800 hover:text-yellow-200">Areas We Serve</Link>
