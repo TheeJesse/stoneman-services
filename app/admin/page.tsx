@@ -3,6 +3,47 @@
 import { useState, useCallback } from "react";
 import Image from "next/image";
 
+// Resize + compress image to max 1920px / JPEG 85% before upload.
+// Keeps phone photos under ~1MB instead of 8–15MB originals.
+async function compressImage(file: File): Promise<File> {
+  return new Promise((resolve) => {
+    const img = document.createElement("img");
+    const objectUrl = URL.createObjectURL(file);
+    img.onload = () => {
+      const MAX = 1920;
+      let { width, height } = img;
+      if (width > MAX || height > MAX) {
+        if (width >= height) {
+          height = Math.round((height * MAX) / width);
+          width = MAX;
+        } else {
+          width = Math.round((width * MAX) / height);
+          height = MAX;
+        }
+      }
+      const canvas = document.createElement("canvas");
+      canvas.width = width;
+      canvas.height = height;
+      const ctx = canvas.getContext("2d")!;
+      ctx.drawImage(img, 0, 0, width, height);
+      URL.revokeObjectURL(objectUrl);
+      canvas.toBlob(
+        (blob) => {
+          resolve(
+            blob
+              ? new File([blob], file.name.replace(/\.[^.]+$/, ".jpg"), { type: "image/jpeg" })
+              : file
+          );
+        },
+        "image/jpeg",
+        0.85
+      );
+    };
+    img.onerror = () => { URL.revokeObjectURL(objectUrl); resolve(file); };
+    img.src = objectUrl;
+  });
+}
+
 const DEFAULT_PW = "";
 
 interface UploadSlot {
@@ -24,6 +65,7 @@ export default function AdminPage() {
   const [authError, setAuthError] = useState("");
   const [slots, setSlots] = useState<UploadSlot[]>([createSlot()]);
   const [uploading, setUploading] = useState(false);
+  const [uploadStatus, setUploadStatus] = useState("");
   const [results, setResults] = useState<{ label: string; ok: boolean }[]>([]);
 
   const checkAuth = async () => {
@@ -47,14 +89,20 @@ export default function AdminPage() {
   };
 
   const handleFile = useCallback(
-    (slotId: string, type: "before" | "after", file: File) => {
+    async (slotId: string, type: "before" | "after", file: File) => {
+      // Show preview immediately from original
       const preview = URL.createObjectURL(file);
       if (type === "before") {
-        setSlotField(slotId, "beforeFile", file);
         setSlotField(slotId, "beforePreview", preview);
       } else {
-        setSlotField(slotId, "afterFile", file);
         setSlotField(slotId, "afterPreview", preview);
+      }
+      // Compress in background, then swap in compressed file
+      const compressed = await compressImage(file);
+      if (type === "before") {
+        setSlotField(slotId, "beforeFile", compressed);
+      } else {
+        setSlotField(slotId, "afterFile", compressed);
       }
     },
     []
@@ -63,7 +111,10 @@ export default function AdminPage() {
   const uploadAll = async () => {
     setUploading(true);
     setResults([]);
+    setUploadStatus("");
     const newResults: { label: string; ok: boolean }[] = [];
+    const total = slots.reduce((n, s) => n + (s.beforeFile ? 1 : 0) + (s.afterFile ? 1 : 0), 0);
+    let done = 0;
 
     for (const slot of slots) {
       const groupId = slot.id;
@@ -74,23 +125,31 @@ export default function AdminPage() {
         const file = type === "before" ? slot.beforeFile : slot.afterFile;
         if (!file) continue;
 
+        done++;
+        setUploadStatus(`Uploading photo ${done} of ${total}…`);
+
         const fd = new FormData();
         fd.append("file", file);
         fd.append("label", label);
         fd.append("type", type);
         fd.append("groupId", groupId);
 
-        const res = await fetch("/api/gallery/upload", {
-          method: "POST",
-          headers: { "x-admin-password": password },
-          body: fd,
-        });
-        if (!res.ok) ok = false;
+        try {
+          const res = await fetch("/api/gallery/upload", {
+            method: "POST",
+            headers: { "x-admin-password": password },
+            body: fd,
+          });
+          if (!res.ok) ok = false;
+        } catch {
+          ok = false;
+        }
       }
 
       newResults.push({ label, ok });
     }
 
+    setUploadStatus("");
     setResults(newResults);
     setUploading(false);
 
@@ -217,7 +276,7 @@ export default function AdminPage() {
             className="px-6 py-3 rounded-full font-bold text-white text-sm disabled:opacity-50"
             style={{ backgroundColor: "#8B5E3C" }}
           >
-            {uploading ? "Uploading…" : "Upload All"}
+            {uploading ? uploadStatus || "Uploading…" : "Upload All"}
           </button>
         </div>
 
