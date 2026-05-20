@@ -85,29 +85,55 @@ export default function ContactPage() {
       </section>
 
       {/* Leave Us a Review */}
-      <section className="py-14 px-4 bg-white" style={{ backgroundColor: "#FAF7F2" }}>
-        <div className="max-w-2xl mx-auto text-center">
-          <h2 className="text-2xl font-bold mb-3" style={{ color: "#1B4332" }}>
-            Love Our Work? Leave Us a Review!
+      <section className="py-16 px-4" style={{ backgroundColor: "#1B4332" }}>
+        <div className="max-w-3xl mx-auto">
+          <h2 className="text-2xl md:text-3xl font-extrabold text-white text-center mb-3">
+            ⭐ Loved Our Work? Leave Us a Review!
           </h2>
-          <p className="text-gray-600 mb-6 text-sm md:text-base">
-            Scan the QR code below or click the link to leave us a Google review. It only takes a minute and means the world to our small business!
+          <p className="text-gray-300 text-center mb-10 text-sm md:text-base max-w-lg mx-auto">
+            Your review helps our small business grow. Scan the QR code or tap the button below — it only takes a minute!
           </p>
-          <div className="flex flex-col items-center gap-4">
-            <img
-              src="/images/review-qr.png"
-              alt="Scan to leave a Google review for Stoneman Services"
-              className="w-48 h-48 rounded-xl shadow-md bg-white p-2"
-            />
-            <a
-              href="https://g.page/r/CYRqrRw2FilAEBI/review"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-6 py-3 rounded-full font-semibold text-white text-sm transition-opacity hover:opacity-90"
-              style={{ backgroundColor: "#8B5E3C" }}
-            >
-              ⭐ Leave a Google Review
-            </a>
+          <div className="bg-white rounded-2xl shadow-lg p-8 md:p-10 flex flex-col md:flex-row items-center gap-8">
+            {/* QR Code */}
+            <div className="flex-shrink-0">
+              <a
+                href="https://g.page/r/CYRqrRw2FilAEBI/review"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img
+                  src="/images/review-qr.png"
+                  alt="Scan to leave a Google review for Stoneman Services"
+                  className="w-56 h-56 md:w-64 md:h-64 rounded-xl"
+                />
+              </a>
+            </div>
+            {/* Text + Button */}
+            <div className="flex flex-col items-center md:items-start gap-4 text-center md:text-left">
+              <div>
+                <p className="font-bold text-lg mb-1" style={{ color: "#1B4332" }}>
+                  Scan with your phone camera
+                </p>
+                <p className="text-gray-500 text-sm">
+                  Point your camera at the QR code to open the review page instantly.
+                </p>
+              </div>
+              <div className="w-full border-t border-gray-200 my-2" />
+              <div>
+                <p className="font-bold text-lg mb-1" style={{ color: "#1B4332" }}>
+                  Or tap the link below
+                </p>
+                <a
+                  href="https://g.page/r/CYRqrRw2FilAEBI/review"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block px-8 py-4 rounded-full font-semibold text-white text-base transition-opacity hover:opacity-90 mt-2"
+                  style={{ backgroundColor: "#8B5E3C" }}
+                >
+                  ⭐ Leave a Google Review
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </section>
