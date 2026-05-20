@@ -2,7 +2,7 @@ backend:
   name: github
   repo: TheeJesse/stoneman-services
   branch: master
-  base_url: https://stonemanservicestn.com
+  base_url: https://www.stonemanservicestn.com
   auth_endpoint: /api/auth
 
 # Media library — images stored in /public/images/
@@ -10,7 +10,7 @@ media_folder: public/images
 public_folder: /images
 
 # Site URL for previews
-site_url: https://stonemanservicestn.com
+site_url: https://www.stonemanservicestn.com
 
 # CMS editor locale
 locale: en
