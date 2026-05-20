@@ -1,0 +1,61 @@
+{
+  "hero": {
+    "heading": "Photo Gallery",
+    "subheading": "Real projects, real results. See the transformation for yourself."
+  },
+  "items": [
+    {
+      "type": "before-after",
+      "title": "Fence Staining — Cedar Transformation",
+      "before_image": "/images/before-after-fence-1.jpg",
+      "after_image": "/images/detail-fence-half.jpg"
+    },
+    {
+      "type": "before-after",
+      "title": "Deck Restoration",
+      "before_image": "/images/before-after-deck-1.jpg",
+      "after_image": "/images/hero-deck-1.jpg"
+    },
+    {
+      "type": "single",
+      "title": "Fence Prep Work",
+      "image": "/images/action-fence-prep.jpg"
+    },
+    {
+      "type": "single",
+      "title": "Staining Railing",
+      "image": "/images/action-staining-railing.jpg"
+    },
+    {
+      "type": "single",
+      "title": "Deck Board Detail",
+      "image": "/images/detail-deck-boards.jpg"
+    },
+    {
+      "type": "single",
+      "title": "Fence Comparison",
+      "image": "/images/detail-fence-compare.jpg"
+    },
+    {
+      "type": "single",
+      "title": "Team on the Job",
+      "image": "/images/hero-fence-cedar-project.jpg"
+    },
+    {
+      "type": "single",
+      "title": "Patio & Pergola",
+      "image": "/images/hero-patio-pergola.jpg"
+    },
+    {
+      "type": "single",
+      "title": "Cedar Fence Project",
+      "image": "/images/hero-fence-cedar.jpg"
+    },
+    {
+      "type": "single",
+      "title": "Deck Work",
+      "image": "/images/action-deck-work.jpg"
+    }
+  ],
+  "cta_banner_heading": "Ready to protect and improve your property?"
+}

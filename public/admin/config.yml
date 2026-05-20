@@ -40,6 +40,30 @@ collections:
   - name: pages
     label: "📄 Pages"
     files:
+      # GALLERY PAGE
+      - name: gallery
+        label: "🖼️ Photo Gallery"
+        file: content/pages/gallery.json
+        fields:
+          - label: "Hero Section"
+            name: hero
+            widget: object
+            fields:
+              - { label: "Heading", name: heading, widget: string }
+              - { label: "Subheading", name: subheading, widget: string }
+
+          - label: "Gallery Items"
+            name: items
+            widget: list
+            fields:
+              - { label: "Type", name: type, widget: select, options: ["single", "before-after"] }
+              - { label: "Title / Description", name: title, widget: string }
+              - { label: "Photo (single)", name: image, widget: image, required: false, hint: "Use for single photos" }
+              - { label: "Before Photo", name: before_image, widget: image, required: false, hint: "Use for before/after pairs" }
+              - { label: "After Photo", name: after_image, widget: image, required: false, hint: "Use for before/after pairs" }
+
+          - { label: "CTA Banner Heading", name: cta_banner_heading, widget: string }
+
       # HOME PAGE
       - name: home
         label: "🏠 Home Page"
@@ -212,15 +236,3 @@ collections:
                   - { label: "Answer", name: a, widget: text }
 
           - { label: "CTA Banner Heading", name: cta_banner_heading, widget: string }
-
-  # ─── MEDIA LIBRARY (standalone) ───────────────────────────────────────────
-  - name: photos
-    label: "🖼️ Photo Gallery"
-    folder: public/images
-    create: true
-    slug: "{{fields.title | slugify}}"
-    media_folder: ""
-    public_folder: ""
-    fields:
-      - { label: "Title / Description", name: title, widget: string }
-      - { label: "Photo", name: photo, widget: image }
