@@ -97,7 +97,7 @@ export default function ContactPage() {
             {/* QR Code */}
             <div className="flex-shrink-0">
               <a
-                href="https://g.page/r/CYRqrRw2FilAEBI/review"
+                href="https://g.page/r/CYRqrRw2FiIAEBM/review"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -124,7 +124,7 @@ export default function ContactPage() {
                   Or tap the link below
                 </p>
                 <a
-                  href="https://g.page/r/CYRqrRw2FilAEBI/review"
+                  href="https://g.page/r/CYRqrRw2FiIAEBM/review"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-block px-8 py-4 rounded-full font-semibold text-white text-base transition-opacity hover:opacity-90 mt-2"
