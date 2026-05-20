@@ -84,6 +84,34 @@ export default function ContactPage() {
         </div>
       </section>
 
+      {/* Leave Us a Review */}
+      <section className="py-14 px-4 bg-white" style={{ backgroundColor: "#FAF7F2" }}>
+        <div className="max-w-2xl mx-auto text-center">
+          <h2 className="text-2xl font-bold mb-3" style={{ color: "#1B4332" }}>
+            Love Our Work? Leave Us a Review!
+          </h2>
+          <p className="text-gray-600 mb-6 text-sm md:text-base">
+            Scan the QR code below or click the link to leave us a Google review. It only takes a minute and means the world to our small business!
+          </p>
+          <div className="flex flex-col items-center gap-4">
+            <img
+              src="/images/review-qr.png"
+              alt="Scan to leave a Google review for Stoneman Services"
+              className="w-48 h-48 rounded-xl shadow-md bg-white p-2"
+            />
+            <a
+              href="https://g.page/r/CYRqrRw2FilAEBI/review"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-6 py-3 rounded-full font-semibold text-white text-sm transition-opacity hover:opacity-90"
+              style={{ backgroundColor: "#8B5E3C" }}
+            >
+              ⭐ Leave a Google Review
+            </a>
+          </div>
+        </div>
+      </section>
+
       {/* Service Area mention */}
       <section className="py-10 px-4 bg-white text-center">
         <div className="max-w-2xl mx-auto">
