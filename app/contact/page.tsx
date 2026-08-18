@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import content from "../../content/pages/contact.json";
+import ContactEstimateForm from "./ContactEstimateForm";
 
 export const metadata: Metadata = {
   title: "Contact Us – Get a Free Estimate from Stoneman Services",
@@ -64,22 +65,7 @@ export default function ContactPage() {
             <h2 className="text-2xl font-bold mb-6" style={{ color: "#1B4332" }}>
               {content.form_heading}
             </h2>
-            <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
-              <p className="text-gray-500 text-sm mb-5">
-                {content.form_intro}
-              </p>
-
-              <iframe
-                src={content.form_url}
-                className="w-full rounded-lg border-0"
-                style={{ minHeight: "600px" }}
-                title="Request a Free Estimate"
-              />
-
-              <p className="text-center text-xs text-gray-400">
-                Or call us directly — we&apos;re friendly and happy to answer questions!
-              </p>
-            </div>
+            <ContactEstimateForm />
           </div>
         </div>
       </section>
